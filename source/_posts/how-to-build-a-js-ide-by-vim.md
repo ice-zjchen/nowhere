@@ -66,7 +66,7 @@ call vundle#end()
 filetype plugin indent on
 ```
 接着执行安装命令即可安装完毕
-```
+```bash
 # 在vim中
 :PluginInstall
 
@@ -74,7 +74,7 @@ filetype plugin indent on
 vim +PluginInstall +qall
 ```
 为了方便vim配置的管理，创建新文件`~/.vimrc_vundle`将以上关于插件部分的配置写入其中，然后再从`~/.vimrc`中引入。
-```
+```bash
 " ~/.vimrc文件"
 set nocompatible 
 filetype off
@@ -87,7 +87,7 @@ if filereadable(expand($VUNDLE_CONFIG))
   source $VUNDLE_CONFIG
 endif
 ```
-```
+```bash
 "~/.vimrc_vundle文件"
 
 "  set the runtime path to include Vundle and initialize"
@@ -112,13 +112,13 @@ filetype plugin indent on
 
 **a. 配色主题**
 所谓颜即是正义，赏心悦目的配色主题很重要。我用的配色是 [molokai](https://github.com/tomasr/molokai) 主题
-```
+```bash
 "~/.vimrc_vundle文件"
 
 " Vundle List Here"
 Plugin 'tomasr/molokai'
 ```
-```
+```bash
 " ~/.vimrc文件"
 
 " vim theme"
@@ -127,7 +127,7 @@ colorscheme molokai
 
 **b. 项目结构**
 左窗口用 NerdTree插件 `Plugin 'scrooloose/nerdtree'`，是一个用于浏览目录结构的插件，配置如下：
-```
+```bash
 " NERDTree"
 let NERDChristmasTree=0
 let NERDTreeWinSize=35
@@ -144,7 +144,7 @@ nmap <F5> :NERDTreeToggle<cr>
 ```
 **c. 文件结构**
 右窗口用 tagbar插件 `Plugin 'majutsushi/tagbar`，为我们提供了一个简单的方式去浏览当前文件的结构，并且支持在各个标签之间快捷的跳转。配置如下：
-```
+```bash
 " Tagbar"
 let g:tagbar_width=35
 let g:tagbar_autofocus=1
@@ -173,7 +173,7 @@ tagbar本身对javascript的分析不够，所以还需要额外的插件去支�
 - 用 vundle 安装 tern_for_vim 插件
 - 在 `~/.vim/bundle/tern_for_vim` 下执行 `npm install`
 - 安装 jsctags
-```
+```bash
 npm install -g git+https://github.com/ramitos/jsctags.git
 ```
 - `~/.vimrc` 添加对js处理的配置
@@ -201,14 +201,14 @@ vim的插件相当多，按需装载即可，就不一一列举了。这里记�
 
 ### 打开tmux
 执行命令tmux，创建一个窗口
-```
+```bash
 $ tmux
 ```
 ### 分屏
 待开启了一个窗口之后，只需再按住 `ctrl-b` 和 `%` ，一个竖直窗格就出现了。另外，若要把屏幕沿水平方向分割，则只需要按下 `ctrl-b` 和 `"`。切换tmux之间的窗口只要按下 `ctrl-b` + 方向键。
 ### tmux 的快捷键前缀
 刚刚所按住的 `ctrl-b` 是tmux的快捷键前缀，是用来区分tmux命令和其他shell命令的，为了方便按键，我们将修改这个前缀为`ctrl-a`
-```
+```bash
 " ~/.tmux.conf 文件
 unbind C-b
 set -g prefix C-a
@@ -216,18 +216,18 @@ set -g prefix C-a
 如果将ctrl键和caps lock键功能对调那就更方便了。按键习惯因人而异，开心就好。
 ### 在tmux中vim的高亮不对
 在 `~/.vimrc` 中加以下配置即可
-```
+```bash
 if exists('$TMUX')
   set term=screen-256color
 endif
 ```
 ### 调整窗格布局
 此时上面的窗格和下面2个窗格是等分的，将vim主窗口调整的更大一点，才更合理点。我们使用以下tmux命令，注意要按前缀`ctrl-a`，然后像vim一样按`:`
-```
+```bash
 resize-pane [-DLRUZ] [-x width] [-y height] [-t target-pane] [adjustment]
 ```
 比如窗格0高度偏移25
-```
+```bash
 :resize-pane -t 0 -y 25
 ```
 ### 更多关于tmux
