@@ -1,5 +1,5 @@
 ---
-title: How to build a Javascript IDE by Vim
+title: How to build a Javascript IDE by Vim+Tmux
 date: 2017.01.25 22:31
 tags:
 ---
